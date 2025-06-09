@@ -5,7 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config'; // ConfigModule 추가
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
-// ... 다른 모듈 import
+import { PostsModule } from './posts/posts.module';
 
 @Module({
   imports: [
@@ -27,9 +27,9 @@ import { AuthModule } from './auth/auth.module';
       }),
       inject: [ConfigService],
     }),
+    PostsModule,
     UsersModule,
     AuthModule,
-    // ... 다른 모듈
   ],
   controllers: [AppController],
   providers: [AppService],
